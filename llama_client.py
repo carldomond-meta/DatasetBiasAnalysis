@@ -1,8 +1,7 @@
 """
 Llama API Client Wrapper
 
-Handles structured output with Pydantic models.
-Adapted from Kaggle_Human_In_The_Loop project.
+Handles structured output with Pydantic models.ß
 """
 
 import json

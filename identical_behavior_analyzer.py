@@ -2,12 +2,7 @@
 Identical Behavior Analyzer Component for the Duplicate Taxonomies App.
 
 Purpose: For a given rogue behavior taxonomy, determine if vendor annotations
-exhibit the SAME behavioral pattern consistently (which indicates poor data diversity).
-
-ROOT QUESTION: "Are annotations for this taxonomy describing the same manifestation
-of the behavior, or different manifestations?"
-
-This component only processes VALIDATED annotations (those that passed the Fact Checker).
+exhibit the SAME behavioral pattern consistently (which indicates poor data diversity).ß
 """
 
 import json
@@ -108,11 +103,6 @@ Provide your analysis:
     return prompt
 
 
-# =============================================================================
-# LLM INTEGRATION
-# =============================================================================
-
-
 def analyze_with_llm(
     taxonomy: str,
     annotations: list[IdenticalBehaviorInput],
@@ -130,12 +120,6 @@ def analyze_with_llm(
         system_prompt=SYSTEM_PROMPT,
         user_prompt=user_prompt,
     )
-
-
-# =============================================================================
-# MAIN LOGIC
-# =============================================================================
-
 
 def analyze_taxonomy(
     taxonomy: str,
@@ -307,10 +291,6 @@ def generate_summary(results: list[IdenticalBehaviorOutput]) -> dict:
         ],
     }
 
-
-# =============================================================================
-# CLI
-# =============================================================================
 
 if __name__ == "__main__":
     import argparse

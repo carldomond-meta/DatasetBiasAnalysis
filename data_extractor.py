@@ -2,12 +2,8 @@
 Data extraction utilities for the Duplicate Taxonomies App.
 
 Supports TWO JSON formats:
-1. INTEGRITY (wrapped): Root is dict with task_id, trajectory, rogue_behavior_step_number
-2. FACTUALITY (raw): Root is list [[steps], [steps]] - trajectory is the root itself
-
-Extracts data for:
-1. Fact Checker - needs evidence (plan, code, analysis, term_out)
-2. Identical Behavior Analyzer - needs only the 3 necessary fields
+1. INTEGRITY
+2. FACTUALITY
 """
 
 import json
@@ -22,12 +18,6 @@ from schemas import (
     NecessaryFields,
     Source,
 )
-
-
-# =============================================================================
-# FORMAT DETECTION & LOADING
-# =============================================================================
-
 
 def load_json_file(file_path: Path) -> dict | list | None:
     """Load a JSON file and return its content (dict or list)."""
@@ -84,11 +74,6 @@ def extract_task_id_from_filename(file_name: str) -> str:
 
     # Fallback: use the whole filename as ID
     return name
-
-
-# =============================================================================
-# TRAJECTORY PARSING
-# =============================================================================
 
 
 def parse_trajectory(data: dict | list, format_type: str) -> list:
@@ -166,10 +151,6 @@ def normalize_rogue_behavior_type(value) -> str:
         return value[0] if value else ""
     return value if isinstance(value, str) else ""
 
-
-# =============================================================================
-# MAIN EXTRACTION FUNCTIONS
-# =============================================================================
 
 
 def extract_for_fact_checker(file_path: Path) -> FactCheckerInput | None:
@@ -362,9 +343,6 @@ def extract_for_identical_behavior(file_path: Path) -> IdenticalBehaviorInput | 
     )
 
 
-# =============================================================================
-# BATCH EXTRACTION
-# =============================================================================
 
 
 def extract_all_for_fact_checker(
