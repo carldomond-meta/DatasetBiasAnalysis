@@ -11,7 +11,7 @@ For a rogue behavior detection model to generalize well, training data must capt
 The app processes a batch of trajectory JSON files through three stages:
 
 1. **Extract** — Parse trajectories and pull out rogue behavior annotations, grouped by taxonomy
-2. **Analyze** — Use the Llama API to determine if behaviors within each taxonomy are exhibited through the same method or different methods
+2. **Analyze** — Uses Maverick 17B 128E via the Llama API to determine if behaviors within each taxonomy are exhibited through the same method or different methods
 3. **Report** — Generate a markdown report summarizing coverage quality per taxonomy
 
 ## Core Components
