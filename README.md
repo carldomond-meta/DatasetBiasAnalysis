@@ -1,5 +1,7 @@
 # Taxonomy Coverage Analysis App
 
+**GitHub Repository:** https://github.com/carldomond-meta/DatasetBiasAnalysis
+
 This app analyzes batches of trajectory data to determine whether rogue behavior taxonomies are exhibited consistently or through varied methods. Using the Llama API with structured JSON output and prompt engineering, it identifies potential dataset bias in training data.
 
 ## Why This Matters
@@ -11,7 +13,7 @@ For a rogue behavior detection model to generalize well, training data must capt
 The app processes a batch of trajectory JSON files through three stages:
 
 1. **Extract** — Parse trajectories and pull out rogue behavior annotations, grouped by taxonomy
-2. **Analyze** — Uses Maverick 17B 128E via the Llama API to determine if behaviors within each taxonomy are exhibited through the same method or different methods
+2. **Analyze** — Use the Llama API to determine if behaviors within each taxonomy are exhibited through the same method or different methods
 3. **Report** — Generate a markdown report summarizing coverage quality per taxonomy
 
 ## Core Components
